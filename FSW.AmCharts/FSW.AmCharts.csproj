@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSW" Version="1.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="dt/**"></Content>
+    <Content Include="dt/**/*.d.ts"></Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="dt\moment.d.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="dt\fsw\" />
+  </ItemGroup>
+</Project>
