@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>FSW.AmCharts</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Pascal Arnold, Olivier Bastien</Authors>
     <Company>N/A</Company>
     <PackageTags>FSW</PackageTags>
@@ -29,7 +29,7 @@
     <Content Remove="dt/**"></Content>
     <Content Include="dt/**/*.d.ts"></Content>
     <Content Remove="wwwroot\lib\amcharts\**"></Content>
-    <Content Remove="wwwroot\lib\amcharts\.js*"></Content>
+    <Content Include="wwwroot\lib\amcharts\*.js"></Content>
     <Content Include="wwwroot\lib\amcharts\plugins\**\*.min.js"></Content>
   </ItemGroup>
 
