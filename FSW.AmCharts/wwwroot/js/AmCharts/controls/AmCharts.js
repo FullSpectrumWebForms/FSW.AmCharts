@@ -59,8 +59,10 @@ var controls;
                     this.graphs_ = [];
                     let graph = Object.keys(this.Graphs).map(x => this.Graphs[x]);
                     for (let i = 0; i < graph.length; ++i) {
+                        var type = (graph[i].GraphType).toString();
+                        type = type.substr(0, 1).toLocaleLowerCase() + type.substr(1);
                         this.graphs_[i] = {
-                            type: (graph[i].GraphType).toString().toLocaleLowerCase(),
+                            type: type,
                             valueField: graph[i].ValueField
                         };
                     }

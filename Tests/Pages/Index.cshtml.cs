@@ -52,7 +52,7 @@ namespace Tests.Pages
             [ValueField(GraphType = GraphType.Line)]
             public float YAxisValue1;
 
-            [ValueField(GraphType = GraphType.Candlestick)]
+            [ValueField(GraphType = GraphType.Column)]
             public float YAxisValue2;
         }
 

@@ -1,6 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>FSW.AmCharts</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Pascal Arnold, Olivier Bastien</Authors>
+    <Company>N/A</Company>
+    <PackageTags>FSW</PackageTags>
+    <PackageProjectUrl>https://github.com/FullSpectrumWebForms/FSW.AmCharts</PackageProjectUrl>
+  </PropertyGroup>
+  
+  <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
     <ApplicationIcon />
@@ -18,6 +28,9 @@
   <ItemGroup>
     <Content Remove="dt/**"></Content>
     <Content Include="dt/**/*.d.ts"></Content>
+    <Content Remove="wwwroot\lib\amcharts\**"></Content>
+    <Content Remove="wwwroot\lib\amcharts\.js*"></Content>
+    <Content Include="wwwroot\lib\amcharts\plugins\**\*.min.js"></Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +38,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="wwwroot\lib\amcharts\**" />
+    <EmbeddedResource Include="wwwroot\lib\amcharts\*.js" />
+    <EmbeddedResource Include="wwwroot\lib\amcharts\plugins\**\*.min.js" />
     <EmbeddedResource Include="wwwroot\js\**\*.js" />
   </ItemGroup>
   
