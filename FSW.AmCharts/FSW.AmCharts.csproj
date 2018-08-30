@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FSW" Version="1.0.6" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
+    <PackageReference Include="FSW" Version="1.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.1.1" />
   </ItemGroup>
@@ -21,19 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\lib\amcharts\amcharts.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="dt\moment.d.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\lib\amcharts\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="dt\fsw\" />
+    <EmbeddedResource Include="wwwroot\js\**\*.js" />
   </ItemGroup>
   
 </Project>
