@@ -30,6 +30,7 @@
     <Content Include="dt/**/*.d.ts"></Content>
     <Content Remove="wwwroot\lib\amcharts\**"></Content>
     <Content Include="wwwroot\lib\amcharts\*.js"></Content>
+    <Content Include="wwwroot\lib\amcharts\themes\**"></Content>
     <Content Include="wwwroot\lib\amcharts\plugins\**\*.min.js"></Content>
   </ItemGroup>
 
@@ -39,6 +40,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="wwwroot\lib\amcharts\*.js" />
+    <EmbeddedResource Include="wwwroot\lib\amcharts\themes\**" />
     <EmbeddedResource Include="wwwroot\lib\amcharts\plugins\**\*.min.js" />
     <EmbeddedResource Include="wwwroot\js\**\*.js" />
   </ItemGroup>
