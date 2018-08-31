@@ -68,12 +68,17 @@ namespace controls.html.amCharts {
             this.graphs_ = [];
             let graph = Object.keys(this.Graphs).map(x => this.Graphs[x]);
             for (let i = 0; i < graph.length; ++i) {
+
                 var type = (graph[i].GraphType).toString();
                 type = type.substr(0, 1).toLocaleLowerCase() + type.substr(1);
+                delete graph[i].GraphType;
+
                 this.graphs_[i] = {
                     type: type,
-                    valueField: graph[i].ValueField
                 };
+                var keys = Object.keys(graph[i]);
+                for (let j = 0; j < keys.length; ++j)
+                    this.graphs_[i][keys[j].substr(0, 1).toLocaleLowerCase() + keys[j].substr(1)] = graph[i][keys[j]];
             }
         }
 

@@ -1,28 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FSW.AmCharts
-{
-    public enum GraphType
-    {
-        Line, Column, Step, SmoothedLine, Candlestick, Ohlc
-    }
-
-    public class GraphConfig
-    {
-        public string Id;
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public GraphType GraphType;
-        public string ValueField;
-    }
-    public enum ChartType
-    {
-        Serial
-    }
-}
 namespace FSW.AmCharts.Controls
 {
     public class AmCharts<DataType> : FSW.Controls.Html.HtmlControlBase
