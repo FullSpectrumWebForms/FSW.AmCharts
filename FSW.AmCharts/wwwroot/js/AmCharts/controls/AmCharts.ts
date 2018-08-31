@@ -57,9 +57,7 @@ namespace controls.html.amCharts {
 
             this.chart = AmCharts.makeChart(this.element[0].id, {
                 type: this.ChartType,
-                dataProvider: [{
-                    X: "salut", Y: 15
-                }],
+                dataProvider: [],
                 categoryField: this.CategoryField,
                 graphs: this.graphs_
             });
