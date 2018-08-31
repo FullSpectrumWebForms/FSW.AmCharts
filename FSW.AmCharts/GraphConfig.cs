@@ -174,7 +174,7 @@ namespace FSW.AmCharts
         {
             Square, Circle, Diamond, TriangleUp, TriangleDown, TriangleLeft, Bubble, Line, None
         }
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, PropertyName = "gradientOrientation")]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, PropertyName = "markerType")]
         private string MarkerType_ = null;
         [JsonIgnore]
         public MarkerTypeStyle? MarkerType

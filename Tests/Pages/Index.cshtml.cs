@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,6 +29,7 @@ namespace Tests.Pages
         private void InitializeChart1()
         {
             AC_Test.Graphs[nameof(ChartData.Y)].GraphType = GraphType.Column;
+            AC_Test.Graphs[nameof(ChartData.Y)].LineColor = Color.Blue;
 
             AC_Test.Datas.AddRange(new[]
             {
