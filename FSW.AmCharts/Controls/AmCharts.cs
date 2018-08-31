@@ -103,11 +103,18 @@ namespace FSW.AmCharts.Controls
             get => GetProperty<string>(PropertyName());
             set => SetProperty(PropertyName(), value);
         }
+        public LegendConfig Legend
+        {
+            get => GetProperty<LegendConfig>(PropertyName());
+            set => SetProperty(PropertyName(), value);
+        }
         public ChartType ChartType
         {
             get => (ChartType)Enum.Parse(typeof(ChartType), GetProperty<ChartType>(PropertyName()).ToString(), true);
             set => SetProperty(PropertyName(), value.ToString());
         }
+
+
 
         public DataCollection Datas;
         public Utility.ControlPropertyDictionary<GraphConfig> Graphs;
