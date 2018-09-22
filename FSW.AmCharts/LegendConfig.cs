@@ -136,7 +136,7 @@ namespace FSW.AmCharts
             get => MarkerDisabledColor_ is null ? (Color?)null : ColorTranslator.FromHtml(MarkerDisabledColor_);
             set => MarkerDisabledColor_ = value is null ? null : ColorTranslator.ToHtml(value.Value);
         }
-
+        /*
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string markerDisabledColor;
 
@@ -220,6 +220,6 @@ namespace FSW.AmCharts
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string width;
-
+        */
     }
 }
