@@ -28,6 +28,13 @@ namespace controls.html.amCharts {
         set CategoryField(value: string) {
             this.setPropertyValue<this>("CategoryField", value);
         }
+        // ------------------------------------------------------------------------   CategoryAxis
+        get CategoryAxis(): any {
+            return this.getPropertyValue<this, string>("CategoryAxis");
+        }
+        set CategoryAxis(value: any) {
+            this.setPropertyValue<this>("CategoryAxis", value);
+        }
         // ------------------------------------------------------------------------   Graphs
         graphs_: any[];
         get Graphs(): { [id: string]: GraphConfig } {
@@ -55,11 +62,25 @@ namespace controls.html.amCharts {
 
             this.parseGraphs();
 
+            let categoryAxis: any = {};
+            this.parseSubObject(this.CategoryAxis, categoryAxis);
+            if (categoryAxis.guides) {
+                for (let i = 0; i < categoryAxis.guides.length; ++i) {
+                    let out: any = {};
+                    this.parseSubObject(categoryAxis.guides[i], out);
+                    categoryAxis.guides[i] = out;
+                }
+            }
+
             this.chart = AmCharts.makeChart(this.element[0].id, {
                 type: this.ChartType,
                 dataProvider: [],
                 categoryField: this.CategoryField,
-                graphs: this.graphs_
+                categoryAxis: categoryAxis,
+                graphs: this.graphs_,
+                chartCursor: {
+                    cursorAlpha: 0
+                }
             });
 
         }
@@ -76,10 +97,15 @@ namespace controls.html.amCharts {
                 this.graphs_[i] = {
                     type: type,
                 };
-                var keys = Object.keys(graph[i]);
-                for (let j = 0; j < keys.length; ++j)
-                    this.graphs_[i][keys[j].substr(0, 1).toLocaleLowerCase() + keys[j].substr(1)] = graph[i][keys[j]];
+
+                this.parseSubObject(graph[i], this.graphs_[i]);
             }
+        }
+        private parseSubObject(obj: { [id: string]: any }, output: any) {
+            var keys = Object.keys(obj);
+
+            for (let i = 0; i < keys.length; ++i)
+                output[keys[i].substr(0, 1).toLocaleLowerCase() + keys[i].substr(1)] = obj[keys[i]];
         }
 
         updateDataProvider(obj: any[]) {

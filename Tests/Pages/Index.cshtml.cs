@@ -54,7 +54,7 @@ namespace Tests.Pages
             [ValueField(GraphType = GraphType.Line)]
             public float YAxisValue1;
 
-            [ValueField(GraphType = GraphType.Column)]
+            [ValueField(GraphType = GraphType.Line)]
             public float YAxisValue2;
         }
 
@@ -64,16 +64,36 @@ namespace Tests.Pages
             return new CustomChartData()
             {
                 XAxis = ++ChartDataCounter,
-                YAxisValue1 = new Random().Next(-1000, 1000)/10,
-                YAxisValue2 = new Random().Next(-1000, 1000)/10,
+                YAxisValue1 = new Random().Next(0, 1000)/10,
+                YAxisValue2 = new Random().Next(0, 1000)/10,
             };
         }
 
         private void InitializeChart2()
         {
+            AC_Test2.Graphs[nameof(CustomChartData.YAxisValue1)].FillAlpha = 0.4f;
+            AC_Test2.Graphs[nameof(CustomChartData.YAxisValue2)].FillAlpha = 0.4f;
+
+
+            AC_Test2.CategoryAxis.Guides = new List<GuideConfig>
+            {
+                new GuideConfig()
+                {
+                    Category = "30",
+                    Label = "Dead line!",
+                    Color = Color.Red,
+                    LineColor = Color.Orange,
+                    LineAlpha = 1,
+                    Inside = true,
+                    DashLength = 5,
+                    LabelRotation = 90,
+                    LineThickness = 3,
+                }
+            };
+
             AC_Test2.Datas.AddRange(Enumerable.Range(0, 100).Select(x => GenerateRandomData()));
 
-            RegisterHostedService(TimeSpan.FromMilliseconds(100), RefreshChart2);
+            RegisterHostedService(TimeSpan.FromMilliseconds(10000), RefreshChart2);
         }
         void RefreshChart2()
         {

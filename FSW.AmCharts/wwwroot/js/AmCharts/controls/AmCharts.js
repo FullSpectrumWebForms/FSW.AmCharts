@@ -29,6 +29,13 @@ var controls;
                 set CategoryField(value) {
                     this.setPropertyValue("CategoryField", value);
                 }
+                // ------------------------------------------------------------------------   CategoryAxis
+                get CategoryAxis() {
+                    return this.getPropertyValue("CategoryAxis");
+                }
+                set CategoryAxis(value) {
+                    this.setPropertyValue("CategoryAxis", value);
+                }
                 get Graphs() {
                     return this.getPropertyValue("Graphs");
                 }
@@ -46,11 +53,24 @@ var controls;
                     super.initialize(type, index, id, properties);
                     let that = this;
                     this.parseGraphs();
+                    let categoryAxis = {};
+                    this.parseSubObject(this.CategoryAxis, categoryAxis);
+                    if (categoryAxis.guides) {
+                        for (let i = 0; i < categoryAxis.guides.length; ++i) {
+                            let out = {};
+                            this.parseSubObject(categoryAxis.guides[i], out);
+                            categoryAxis.guides[i] = out;
+                        }
+                    }
                     this.chart = AmCharts.makeChart(this.element[0].id, {
                         type: this.ChartType,
                         dataProvider: [],
                         categoryField: this.CategoryField,
-                        graphs: this.graphs_
+                        categoryAxis: categoryAxis,
+                        graphs: this.graphs_,
+                        chartCursor: {
+                            cursorAlpha: 0
+                        }
                     });
                 }
                 parseGraphs() {
@@ -63,10 +83,13 @@ var controls;
                         this.graphs_[i] = {
                             type: type,
                         };
-                        var keys = Object.keys(graph[i]);
-                        for (let j = 0; j < keys.length; ++j)
-                            this.graphs_[i][keys[j].substr(0, 1).toLocaleLowerCase() + keys[j].substr(1)] = graph[i][keys[j]];
+                        this.parseSubObject(graph[i], this.graphs_[i]);
                     }
+                }
+                parseSubObject(obj, output) {
+                    var keys = Object.keys(obj);
+                    for (let i = 0; i < keys.length; ++i)
+                        output[keys[i].substr(0, 1).toLocaleLowerCase() + keys[i].substr(1)] = obj[keys[i]];
                 }
                 updateDataProvider(obj) {
                     this.dataProvider = obj;

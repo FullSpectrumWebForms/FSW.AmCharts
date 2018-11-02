@@ -58,11 +58,26 @@ namespace FSW.AmCharts
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string DateFormat = null;
 
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public float FillAlphas = 0;
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, PropertyName = "fillAlphas")]
+        public float FillAlpha = 0;
 
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public List<Color> FillColors = null;
+
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, PropertyName = "fillColors")]
+        private object FillColors_ = null;
+
+        [JsonIgnore]
+        public Color? FillColor
+        {
+            get => FillColors_ is string color ? ColorTranslator.FromHtml(color) : (Color?)null;
+            set => FillColors_ = value is null ? null : ColorTranslator.ToHtml(value.Value);
+        }
+
+        [JsonIgnore]
+        public List<Color> FillColors
+        {
+            get => FillColors_ is List<string> color ? color.Select(ColorTranslator.FromHtml).ToList() : null;
+            set => FillColors_ = value?.Select(ColorTranslator.ToHtml).ToList();
+        }
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string FillColorsField = null;
@@ -117,7 +132,7 @@ namespace FSW.AmCharts
         {
             Bottom, Top, Right, Left, Inside, Middle
         }
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, PropertyName = "labelPosition")]
         private string LabelPosition_ = null;
         [JsonIgnore]
         public Position? LabelPosition
@@ -125,6 +140,7 @@ namespace FSW.AmCharts
             get => LabelPosition_ is null ? (Position?)null : (Position)Enum.Parse(typeof(Position), LabelPosition_);
             set => LabelPosition_ = value?.ToString().ToLower();
         }
+
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public float labelRotation = 0;
 

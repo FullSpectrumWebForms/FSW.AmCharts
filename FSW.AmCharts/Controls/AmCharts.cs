@@ -108,6 +108,11 @@ namespace FSW.AmCharts.Controls
             get => GetProperty<LegendConfig>(PropertyName());
             set => SetProperty(PropertyName(), value);
         }
+        public CategoryAxisConfig CategoryAxis
+        {
+            get => GetProperty<CategoryAxisConfig>(PropertyName());
+            set => SetProperty(PropertyName(), value);
+        }
         public ChartType ChartType
         {
             get => (ChartType)Enum.Parse(typeof(ChartType), GetProperty<ChartType>(PropertyName()).ToString(), true);
@@ -126,6 +131,7 @@ namespace FSW.AmCharts.Controls
             Datas = new DataCollection(this);
             CategoryField = "";
             ChartType = ChartType.Serial;
+            CategoryAxis = new CategoryAxisConfig();
 
             InitializeGraphsAndCategoryField();
         }
