@@ -19,6 +19,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Update="tsconfig.json" Pack="false" />
+    <Content Update="package.json" Pack="false" />
+    <Content Update="package-lock.json" Pack="false" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <PackageReference Include="FSW" Version="1.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
