@@ -54,7 +54,10 @@ namespace FSW.AmCharts
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string CustomBulletField = null;
-
+        
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public float? DashLength = null;
+        
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string DateFormat = null;
 
