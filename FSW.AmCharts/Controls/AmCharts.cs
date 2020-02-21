@@ -123,9 +123,9 @@ namespace FSW.AmCharts.Controls
 
         public DataCollection Datas;
         public Utility.ControlPropertyDictionary<GraphConfig> Graphs;
-        public override void InitializeProperties()
+        public override async Task InitializeProperties()
         {
-            base.InitializeProperties();
+            await base.InitializeProperties();
 
             Graphs = new Utility.ControlPropertyDictionary<GraphConfig>(this, nameof(Graphs));
             Datas = new DataCollection(this);
