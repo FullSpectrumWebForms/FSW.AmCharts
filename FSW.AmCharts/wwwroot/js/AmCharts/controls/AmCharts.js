@@ -36,6 +36,34 @@ var controls;
                 set CategoryAxis(value) {
                     this.setPropertyValue("CategoryAxis", value);
                 }
+                // ------------------------------------------------------------------------   Depth3D
+                get Depth3D() {
+                    return this.tryGetPropertyValue("Depth3D");
+                }
+                set Depth3D(value) {
+                    this.setPropertyValue("Depth3D", value);
+                }
+                // ------------------------------------------------------------------------   Angle
+                get Angle() {
+                    return this.tryGetPropertyValue("Angle");
+                }
+                set Angle(value) {
+                    this.setPropertyValue("Angle", value);
+                }
+                // ------------------------------------------------------------------------   Legend
+                get Legend() {
+                    return this.tryGetPropertyValue("Legend");
+                }
+                set Legend(value) {
+                    this.setPropertyValue("Legend", value);
+                }
+                // ------------------------------------------------------------------------   StartDuration
+                get StartDuration() {
+                    return this.tryGetPropertyValue("StartDuration");
+                }
+                set StartDuration(value) {
+                    this.setPropertyValue("StartDuration", value);
+                }
                 get Graphs() {
                     return this.getPropertyValue("Graphs");
                 }
@@ -70,7 +98,16 @@ var controls;
                         graphs: this.graphs_,
                         chartCursor: {
                             cursorAlpha: 0
-                        }
+                        },
+                        legend: this.Legend,
+                        valueAxes: [{
+                                "stackType": "regular",
+                                "axisAlpha": 0.3,
+                                "gridAlpha": 0
+                            }],
+                        depth3D: this.Depth3D,
+                        angle: this.Angle,
+                        startDuration: this.StartDuration,
                     });
                 }
                 parseGraphs() {

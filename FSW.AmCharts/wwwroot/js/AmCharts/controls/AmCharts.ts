@@ -1,4 +1,4 @@
-﻿/// <reference path="..\..\..\..\dt\controls\html\htmlControlBase.d.ts" />
+/// <reference path="..\..\..\..\dt\controls\html\htmlControlBase.d.ts" />
 
 declare var AmCharts: any;
 
@@ -34,6 +34,34 @@ namespace controls.html.amCharts {
         }
         set CategoryAxis(value: any) {
             this.setPropertyValue<this>("CategoryAxis", value);
+        }
+        // ------------------------------------------------------------------------   Depth3D
+        get Depth3D(): number {
+            return this.tryGetPropertyValue<this, number>("Depth3D");
+        }
+        set Depth3D(value: number) {
+            this.setPropertyValue<this>("Depth3D", value);
+        }
+        // ------------------------------------------------------------------------   Angle
+        get Angle(): number {
+            return this.tryGetPropertyValue<this, number>("Angle");
+        }
+        set Angle(value: number) {
+            this.setPropertyValue<this>("Angle", value);
+        }
+        // ------------------------------------------------------------------------   Legend
+        get Legend(): any {
+            return this.tryGetPropertyValue<this, any>("Legend");
+        }
+        set Legend(value: any) {
+            this.setPropertyValue<this>("Legend", value);
+        }
+        // ------------------------------------------------------------------------   StartDuration
+        get StartDuration(): number {
+            return this.tryGetPropertyValue<this, number>("StartDuration");
+        }
+        set StartDuration(value: number) {
+            this.setPropertyValue<this>("StartDuration", value);
         }
         // ------------------------------------------------------------------------   Graphs
         graphs_: any[];
@@ -80,7 +108,16 @@ namespace controls.html.amCharts {
                 graphs: this.graphs_,
                 chartCursor: {
                     cursorAlpha: 0
-                }
+                },
+                legend: this.Legend,
+                valueAxes: [{
+                    "stackType": "regular",
+                    "axisAlpha": 0.3,
+                    "gridAlpha": 0
+                }],
+                depth3D: this.Depth3D,
+                angle: this.Angle,
+                startDuration: this.StartDuration,
             });
 
         }

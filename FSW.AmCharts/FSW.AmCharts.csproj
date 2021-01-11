@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>FSW.AmCharts</PackageId>
-    <Version>3.0.0.1-beta</Version>
+    <Version>3.0.0.10</Version>
     <Authors>Pascal Arnold, Olivier Bastien</Authors>
     <Company>N/A</Company>
     <PackageTags>FSW</PackageTags>
@@ -12,7 +12,7 @@
   
   <PropertyGroup>
     <TargetFramework>netcoreapp3</TargetFramework>
-    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />

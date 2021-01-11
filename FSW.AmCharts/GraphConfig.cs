@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,6 +21,9 @@ namespace FSW.AmCharts
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string BalloonText = null;
+
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, PropertyName = "name")]
+        public string Name = null;
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool BehindColumns = false;
@@ -54,10 +57,10 @@ namespace FSW.AmCharts
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string CustomBulletField = null;
-        
+
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public float? DashLength = null;
-        
+
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string DateFormat = null;
 

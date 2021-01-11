@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -101,6 +101,21 @@ namespace FSW.AmCharts.Controls
         public string CategoryField
         {
             get => GetProperty<string>(PropertyName());
+            set => SetProperty(PropertyName(), value);
+        }
+        public double? Depth3D
+        {
+            get => GetProperty<double?>(PropertyName());
+            set => SetProperty(PropertyName(), value);
+        }
+        public double? Angle
+        {
+            get => GetProperty<double?>(PropertyName());
+            set => SetProperty(PropertyName(), value);
+        }
+        public double? StartDuration
+        {
+            get => GetProperty<double?>(PropertyName());
             set => SetProperty(PropertyName(), value);
         }
         public LegendConfig Legend
